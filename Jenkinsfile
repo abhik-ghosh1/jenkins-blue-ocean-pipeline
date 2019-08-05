@@ -1,9 +1,12 @@
 pipeline {
     agent any
     stages {
+    	ws("/home/abhik/jenkins_ws") {
+  		echo "awesome commands here instead of echo"
+		}
         stage('build') {
             steps {
-                sh 'mvn clean compile package'
+                sh 'mvn clean compile package --DskipTests'
             }
         }
         stage('test') {
@@ -13,7 +16,7 @@ pipeline {
         }
         stage('package') {
             steps {
-                sh 'mvn install'
+                sh 'mvn install -DskipTests'
             }
         }
     }
