@@ -6,7 +6,7 @@ pipeline {
             	ws("/home/abhik/jenkins_ws") {
   					echo "awesome commands here instead of echo"
 				}
-                sh 'mvn clean compile package --DskipTests'
+                sh 'mvn clean compile package -DskipTests '
             }
         }
         stage('test') {
